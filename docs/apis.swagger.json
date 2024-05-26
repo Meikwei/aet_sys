@@ -1,0 +1,1170 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "sys api docs",
+    "version": "2.0"
+  },
+  "tags": [
+    {
+      "name": "sysRole"
+    },
+    {
+      "name": "sysUser"
+    }
+  ],
+  "host": "localhost:8080",
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/v1/sysRole": {
+      "post": {
+        "summary": "create sysRole",
+        "description": "submit information to create sysRole",
+        "operationId": "sysRole_Create",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CreateSysRoleReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1CreateSysRoleRequest"
+            }
+          }
+        ],
+        "tags": [
+          "sysRole"
+        ]
+      }
+    },
+    "/api/v1/sysRole/condition": {
+      "post": {
+        "summary": "get sysRole detail by condition",
+        "description": "get sysRole detail by condition",
+        "operationId": "sysRole_GetByCondition",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetSysRoleByConditionReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1GetSysRoleByConditionRequest"
+            }
+          }
+        ],
+        "tags": [
+          "sysRole"
+        ]
+      }
+    },
+    "/api/v1/sysRole/delete/ids": {
+      "post": {
+        "summary": "delete sysRoles by batch id",
+        "description": "delete sysRoles by batch id",
+        "operationId": "sysRole_DeleteByIDs",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1DeleteSysRoleByIDsReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1DeleteSysRoleByIDsRequest"
+            }
+          }
+        ],
+        "tags": [
+          "sysRole"
+        ]
+      }
+    },
+    "/api/v1/sysRole/list": {
+      "get": {
+        "summary": "list of sysRole by last id",
+        "description": "list of sysRole by last id",
+        "operationId": "sysRole_ListByLastID",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ListSysRoleByLastIDReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "lastID",
+            "description": "last id",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "uint64"
+          },
+          {
+            "name": "limit",
+            "description": "limit size per page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "sort",
+            "description": "sort by column name of table, default is -id, the - sign indicates descending order.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "sysRole"
+        ]
+      },
+      "post": {
+        "summary": "list of sysRoles by parameters",
+        "description": "list of sysRoles by paging and conditions",
+        "operationId": "sysRole_List",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ListSysRoleReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1ListSysRoleRequest"
+            }
+          }
+        ],
+        "tags": [
+          "sysRole"
+        ]
+      }
+    },
+    "/api/v1/sysRole/list/ids": {
+      "post": {
+        "summary": "list of sysRoles by batch id",
+        "description": "list of sysRoles by batch id",
+        "operationId": "sysRole_ListByIDs",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ListSysRoleByIDsReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1ListSysRoleByIDsRequest"
+            }
+          }
+        ],
+        "tags": [
+          "sysRole"
+        ]
+      }
+    },
+    "/api/v1/sysRole/{id}": {
+      "get": {
+        "summary": "get sysRole detail",
+        "description": "get sysRole detail by id",
+        "operationId": "sysRole_GetByID",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetSysRoleByIDReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "uint64"
+          }
+        ],
+        "tags": [
+          "sysRole"
+        ]
+      },
+      "delete": {
+        "summary": "delete sysRole",
+        "description": "delete sysRole by id",
+        "operationId": "sysRole_DeleteByID",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1DeleteSysRoleByIDReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "uint64"
+          }
+        ],
+        "tags": [
+          "sysRole"
+        ]
+      },
+      "put": {
+        "summary": "update sysRole",
+        "description": "update sysRole by id",
+        "operationId": "sysRole_UpdateByID",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1UpdateSysRoleByIDReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "description": "角色ID",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "uint64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1sysRoleUpdateByIDBody"
+            }
+          }
+        ],
+        "tags": [
+          "sysRole"
+        ]
+      }
+    },
+    "/v1/sys_user/create": {
+      "post": {
+        "summary": "创建用户",
+        "operationId": "create_sys_user",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CreateSysUserReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1CreateSysUserRequest"
+            }
+          }
+        ],
+        "tags": [
+          "sys_user"
+        ]
+      }
+    },
+    "/v1/sys_user/delete/batch": {
+      "post": {
+        "summary": "批量删除用户",
+        "operationId": "delete_sys_user_by_ids",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1DeleteSysUserByIDsReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "format": "uint64"
+              }
+            }
+          }
+        ],
+        "tags": [
+          "sys_user"
+        ]
+      }
+    },
+    "/v1/sys_user/delete/{id}": {
+      "delete": {
+        "summary": "删除用户",
+        "operationId": "delete_sys_user_by_id",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1DeleteSysUserByIDReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "uint64"
+          }
+        ],
+        "tags": [
+          "sys_user"
+        ]
+      }
+    },
+    "/v1/sys_user/get/{id}": {
+      "get": {
+        "summary": "通过ID获取用户",
+        "operationId": "get_sys_user_by_id",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetSysUserByIDReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "uint64"
+          }
+        ],
+        "tags": [
+          "sys_user"
+        ]
+      }
+    },
+    "/v1/sys_user/getByCondition": {
+      "post": {
+        "summary": "通过条件获取用户",
+        "operationId": "get_sys_user_by_condition",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetSysUserByConditionReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1GetSysUserByConditionRequest"
+            }
+          }
+        ],
+        "tags": [
+          "sys_user"
+        ]
+      }
+    },
+    "/v1/sys_user/list": {
+      "post": {
+        "summary": "获取用户列表",
+        "operationId": "list_sys_user",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ListSysUserReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1ListSysUserRequest"
+            }
+          }
+        ],
+        "tags": [
+          "sys_user"
+        ]
+      }
+    },
+    "/v1/sys_user/listByIDs": {
+      "post": {
+        "summary": "通过ID批量获取用户",
+        "operationId": "list_sys_user_by_ids",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ListSysUserByIDsReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "format": "uint64"
+              }
+            }
+          }
+        ],
+        "tags": [
+          "sys_user"
+        ]
+      }
+    },
+    "/v1/sys_user/listByLastID": {
+      "post": {
+        "summary": "通过最后ID获取用户列表",
+        "operationId": "list_sys_user_by_last_id",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ListSysUserByLastIDReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1ListSysUserByLastIDRequest"
+            }
+          }
+        ],
+        "tags": [
+          "sys_user"
+        ]
+      }
+    },
+    "/v1/sys_user/update/{id}": {
+      "put": {
+        "summary": "通过ID更新用户",
+        "operationId": "update_sys_user_by_id",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1UpdateSysUserByIDReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "description": "用户ID",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "uint64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1sysUserUpdateByIDBody"
+            }
+          }
+        ],
+        "tags": [
+          "sys_user"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "typesColumn": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "title": "column name"
+        },
+        "exp": {
+          "type": "string",
+          "title": "expressions, which default to = when the value is null, have =, !=, \u003e, \u003e=, \u003c, \u003c=, like, in"
+        },
+        "value": {
+          "type": "string",
+          "title": "column value"
+        },
+        "logic": {
+          "type": "string",
+          "title": "logical type, defaults to and when value is null, only \u0026(and), ||(or)"
+        }
+      }
+    },
+    "typesConditions": {
+      "type": "object",
+      "properties": {
+        "columns": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/typesColumn"
+          },
+          "title": "query conditions"
+        }
+      }
+    },
+    "typesParams": {
+      "type": "object",
+      "properties": {
+        "page": {
+          "type": "integer",
+          "format": "int32",
+          "title": "page number, starting from 0"
+        },
+        "limit": {
+          "type": "integer",
+          "format": "int32",
+          "title": "lines per page"
+        },
+        "sort": {
+          "type": "string",
+          "title": "sorted fields, multi-column sorting separated by commas"
+        },
+        "columns": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/typesColumn"
+          },
+          "title": "query conditions"
+        }
+      }
+    },
+    "v1CreateSysRoleReply": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "uint64"
+        }
+      }
+    },
+    "v1CreateSysRoleRequest": {
+      "type": "object",
+      "properties": {
+        "roleName": {
+          "type": "string",
+          "title": "角色名称"
+        },
+        "roleDesc": {
+          "type": "string",
+          "title": "角色描述"
+        },
+        "createUser": {
+          "type": "string",
+          "title": "创建人"
+        },
+        "updateUser": {
+          "type": "string",
+          "title": "更新人"
+        }
+      }
+    },
+    "v1CreateSysUserReply": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "uint64"
+        }
+      }
+    },
+    "v1CreateSysUserRequest": {
+      "type": "object",
+      "properties": {
+        "userName": {
+          "type": "string",
+          "title": "用户名昵称"
+        },
+        "userNumber": {
+          "type": "string",
+          "title": "用户编号"
+        },
+        "userPassword": {
+          "type": "string",
+          "title": "用户密码"
+        },
+        "userPhone": {
+          "type": "string",
+          "title": "用户手机号"
+        },
+        "userAvatar": {
+          "type": "string",
+          "title": "用户头像"
+        },
+        "createUser": {
+          "type": "string",
+          "title": "创建人"
+        },
+        "updateUser": {
+          "type": "string",
+          "title": "更新人"
+        }
+      }
+    },
+    "v1DeleteSysRoleByIDReply": {
+      "type": "object"
+    },
+    "v1DeleteSysRoleByIDsReply": {
+      "type": "object"
+    },
+    "v1DeleteSysRoleByIDsRequest": {
+      "type": "object",
+      "properties": {
+        "ids": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "uint64"
+          }
+        }
+      }
+    },
+    "v1DeleteSysUserByIDReply": {
+      "type": "object"
+    },
+    "v1DeleteSysUserByIDsReply": {
+      "type": "object"
+    },
+    "v1GetSysRoleByConditionReply": {
+      "type": "object",
+      "properties": {
+        "sysRole": {
+          "$ref": "#/definitions/v1SysRole"
+        }
+      }
+    },
+    "v1GetSysRoleByConditionRequest": {
+      "type": "object",
+      "properties": {
+        "conditions": {
+          "$ref": "#/definitions/typesConditions"
+        }
+      }
+    },
+    "v1GetSysRoleByIDReply": {
+      "type": "object",
+      "properties": {
+        "sysRole": {
+          "$ref": "#/definitions/v1SysRole"
+        }
+      }
+    },
+    "v1GetSysUserByConditionReply": {
+      "type": "object",
+      "properties": {
+        "sysUser": {
+          "$ref": "#/definitions/v1SysUser"
+        }
+      }
+    },
+    "v1GetSysUserByConditionRequest": {
+      "type": "object",
+      "properties": {
+        "conditions": {
+          "$ref": "#/definitions/typesConditions"
+        }
+      }
+    },
+    "v1GetSysUserByIDReply": {
+      "type": "object",
+      "properties": {
+        "sysUser": {
+          "$ref": "#/definitions/v1SysUser"
+        }
+      }
+    },
+    "v1ListSysRoleByIDsReply": {
+      "type": "object",
+      "properties": {
+        "sysRoles": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/v1SysRole"
+          }
+        }
+      }
+    },
+    "v1ListSysRoleByIDsRequest": {
+      "type": "object",
+      "properties": {
+        "ids": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "uint64"
+          }
+        }
+      }
+    },
+    "v1ListSysRoleByLastIDReply": {
+      "type": "object",
+      "properties": {
+        "sysRoles": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/v1SysRole"
+          }
+        }
+      }
+    },
+    "v1ListSysRoleReply": {
+      "type": "object",
+      "properties": {
+        "total": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "sysRoles": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/v1SysRole"
+          }
+        }
+      }
+    },
+    "v1ListSysRoleRequest": {
+      "type": "object",
+      "properties": {
+        "params": {
+          "$ref": "#/definitions/typesParams"
+        }
+      }
+    },
+    "v1ListSysUserByIDsReply": {
+      "type": "object",
+      "properties": {
+        "sysUsers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/v1SysUser"
+          }
+        }
+      }
+    },
+    "v1ListSysUserByLastIDReply": {
+      "type": "object",
+      "properties": {
+        "sysUsers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/v1SysUser"
+          }
+        }
+      }
+    },
+    "v1ListSysUserByLastIDRequest": {
+      "type": "object",
+      "properties": {
+        "lastID": {
+          "type": "integer",
+          "format": "uint64",
+          "title": "last id"
+        },
+        "limit": {
+          "type": "integer",
+          "format": "int64",
+          "title": "limit size per page"
+        },
+        "sort": {
+          "type": "string",
+          "description": "sort by column name of table, default is -id, the - sign indicates descending order."
+        }
+      }
+    },
+    "v1ListSysUserReply": {
+      "type": "object",
+      "properties": {
+        "total": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "sysUsers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/v1SysUser"
+          }
+        }
+      }
+    },
+    "v1ListSysUserRequest": {
+      "type": "object",
+      "properties": {
+        "params": {
+          "$ref": "#/definitions/typesParams"
+        }
+      }
+    },
+    "v1SysRole": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "uint64",
+          "title": "角色ID"
+        },
+        "roleName": {
+          "type": "string",
+          "title": "角色名称"
+        },
+        "roleDesc": {
+          "type": "string",
+          "title": "角色描述"
+        },
+        "createUser": {
+          "type": "string",
+          "title": "创建人"
+        },
+        "updateUser": {
+          "type": "string",
+          "title": "更新人"
+        },
+        "createdAt": {
+          "type": "string",
+          "title": "创建时间"
+        },
+        "updatedAt": {
+          "type": "string",
+          "title": "更新时间"
+        }
+      }
+    },
+    "v1SysUser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "uint64",
+          "title": "用户ID"
+        },
+        "userName": {
+          "type": "string",
+          "title": "用户名昵称"
+        },
+        "userNumber": {
+          "type": "string",
+          "title": "用户编号"
+        },
+        "userPassword": {
+          "type": "string",
+          "title": "用户密码"
+        },
+        "userPhone": {
+          "type": "string",
+          "title": "用户手机号"
+        },
+        "userAvatar": {
+          "type": "string",
+          "title": "用户头像"
+        },
+        "createUser": {
+          "type": "string",
+          "title": "创建人"
+        },
+        "updateUser": {
+          "type": "string",
+          "title": "更新人"
+        },
+        "createdAt": {
+          "type": "string",
+          "title": "创建时间"
+        },
+        "updatedAt": {
+          "type": "string",
+          "title": "更新时间"
+        }
+      }
+    },
+    "v1UpdateSysRoleByIDReply": {
+      "type": "object"
+    },
+    "v1UpdateSysUserByIDReply": {
+      "type": "object"
+    },
+    "v1sysRoleUpdateByIDBody": {
+      "type": "object",
+      "properties": {
+        "roleName": {
+          "type": "string",
+          "title": "角色名称"
+        },
+        "roleDesc": {
+          "type": "string",
+          "title": "角色描述"
+        },
+        "createUser": {
+          "type": "string",
+          "title": "创建人"
+        },
+        "updateUser": {
+          "type": "string",
+          "title": "更新人"
+        }
+      }
+    },
+    "v1sysUserUpdateByIDBody": {
+      "type": "object",
+      "properties": {
+        "userName": {
+          "type": "string",
+          "title": "用户名昵称"
+        },
+        "userNumber": {
+          "type": "string",
+          "title": "用户编号"
+        },
+        "userPassword": {
+          "type": "string",
+          "title": "用户密码"
+        },
+        "userPhone": {
+          "type": "string",
+          "title": "用户手机号"
+        },
+        "userAvatar": {
+          "type": "string",
+          "title": "用户头像"
+        },
+        "createUser": {
+          "type": "string",
+          "title": "创建人"
+        },
+        "updateUser": {
+          "type": "string",
+          "title": "更新人"
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "BearerAuth": {
+      "type": "apiKey",
+      "description": "Type Bearer your-jwt-token to Value",
+      "name": "Authorization",
+      "in": "header"
+    }
+  }
+}

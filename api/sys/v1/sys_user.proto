@@ -1,0 +1,240 @@
+syntax = "proto3";
+
+package api.sys.v1;
+
+import "api/types/types.proto";
+import "validate/validate.proto";
+import "google/api/annotations.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+option go_package = "github.com/Meikwei/aet_sys/api/sys/v1;v1";
+
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
+  info: {
+		title: "sys_user";
+		version: "1.0";	
+  };
+  schemes: HTTP;
+};
+service sysUser {
+  // create sysUser
+  rpc Create(CreateSysUserRequest) returns (CreateSysUserReply) {
+    option (google.api.http)={
+      post: "/v1/sys_user/create",
+      body:"*"
+    };
+    option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+      summary: "创建用户"
+      operation_id: "create_sys_user"
+      tags: ["sys_user"]
+    };
+  }
+
+  // delete sysUser by id
+  rpc DeleteByID(DeleteSysUserByIDRequest) returns (DeleteSysUserByIDReply) {
+    option (google.api.http)={
+      delete: "/v1/sys_user/delete/{id}"
+    };
+    option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+      summary: "删除用户"
+      operation_id: "delete_sys_user_by_id"
+      tags: ["sys_user"]
+    };
+  }
+
+  // delete sysUser by batch id
+  rpc DeleteByIDs(DeleteSysUserByIDsRequest) returns (DeleteSysUserByIDsReply) {
+    option (google.api.http)={
+      post: "/v1/sys_user/delete/batch"
+      body:"ids"
+    };
+    option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+      summary: "批量删除用户"
+      operation_id: "delete_sys_user_by_ids"
+      tags: ["sys_user"]
+    };
+  }
+
+  // update sysUser by id
+  rpc UpdateByID(UpdateSysUserByIDRequest) returns (UpdateSysUserByIDReply) {
+    option (google.api.http)={
+      put: "/v1/sys_user/update/{id}",
+      body:"*"
+    };
+    option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+      summary: "通过ID更新用户"
+      operation_id: "update_sys_user_by_id"
+      tags: ["sys_user"]
+    };
+  }
+
+  // get sysUser by id
+  rpc GetByID(GetSysUserByIDRequest) returns (GetSysUserByIDReply) {
+    option (google.api.http)={
+      get: "/v1/sys_user/get/{id}"
+    };
+    option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+      summary: "通过ID获取用户"
+      operation_id: "get_sys_user_by_id"
+      tags: ["sys_user"]
+    };
+  }
+
+  // get sysUser by condition
+  rpc GetByCondition(GetSysUserByConditionRequest) returns (GetSysUserByConditionReply) {
+    option (google.api.http)={
+      post: "/v1/sys_user/getByCondition",
+      body:"*"
+    };
+    option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+      summary: "通过条件获取用户"
+      operation_id: "get_sys_user_by_condition"
+      tags: ["sys_user"]
+    };
+  }
+
+  // list of sysUser by batch id
+  rpc ListByIDs(ListSysUserByIDsRequest) returns (ListSysUserByIDsReply) {
+    option (google.api.http)={
+      post: "/v1/sys_user/listByIDs",
+      body:"ids"
+    };
+    option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+      summary: "通过ID批量获取用户"
+      operation_id: "list_sys_user_by_ids"
+      tags: ["sys_user"]
+  };
+  }
+
+  // list sysUser by last id
+  rpc ListByLastID(ListSysUserByLastIDRequest) returns (ListSysUserByLastIDReply) {
+    option (google.api.http)={
+      post: "/v1/sys_user/listByLastID",
+      body:"*"
+    };
+    option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+      summary: "通过最后ID获取用户列表"
+      operation_id: "list_sys_user_by_last_id"
+      tags: ["sys_user"]
+  };
+  }
+
+  // list of sysUser by query parameters
+  rpc List(ListSysUserRequest) returns (ListSysUserReply) {
+    option (google.api.http)={
+      post: "/v1/sys_user/list",
+      body:"*"
+    };
+    option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+      summary: "获取用户列表"
+      operation_id: "list_sys_user"
+      tags: ["sys_user"]
+    };
+  }
+}
+
+// Some notes on defining fields under message:
+// Fill in the validate rules https://github.com/envoyproxy/protoc-gen-validate#constraint-rules
+
+message CreateSysUserRequest {
+	string userName = 1;  // 用户名昵称
+	string userNumber = 2;  // 用户编号
+	string userPassword = 3;  // 用户密码
+	string userPhone = 4;  // 用户手机号
+	string userAvatar = 5;  // 用户头像
+	string createUser = 6;  // 创建人
+	string updateUser = 7;  // 更新人
+}
+
+message CreateSysUserReply {
+  uint64 id = 1;
+}
+
+message DeleteSysUserByIDRequest {
+  uint64 id = 1 [(validate.rules).uint64.gt = 0];
+}
+
+message DeleteSysUserByIDReply {
+
+}
+
+message DeleteSysUserByIDsRequest {
+  repeated uint64 ids = 1 [(validate.rules).repeated.min_items = 1];
+}
+
+message DeleteSysUserByIDsReply {
+
+}
+
+message UpdateSysUserByIDRequest {
+	uint64 id = 1;  // 用户ID
+	string userName = 2;  // 用户名昵称
+	string userNumber = 3;  // 用户编号
+	string userPassword = 4;  // 用户密码
+	string userPhone = 5;  // 用户手机号
+	string userAvatar = 6;  // 用户头像
+	string createUser = 7;  // 创建人
+	string updateUser = 8;  // 更新人
+}
+
+message UpdateSysUserByIDReply {
+
+}
+
+message SysUser {
+	uint64 id = 1;  // 用户ID
+	string userName = 2;  // 用户名昵称
+	string userNumber = 3;  // 用户编号
+	string userPassword = 4;  // 用户密码
+	string userPhone = 5;  // 用户手机号
+	string userAvatar = 6;  // 用户头像
+	string createUser = 7;  // 创建人
+	string updateUser = 8;  // 更新人
+	string createdAt = 9;  // 创建时间
+	string updatedAt = 10;  // 更新时间
+}
+
+message GetSysUserByIDRequest {
+  uint64 id = 1 [(validate.rules).uint64.gt = 0];
+}
+
+message GetSysUserByIDReply {
+  SysUser sysUser = 1;
+}
+
+message GetSysUserByConditionRequest {
+  types.Conditions conditions = 1;
+}
+
+message GetSysUserByConditionReply {
+  SysUser sysUser = 1;
+}
+
+message ListSysUserByIDsRequest {
+  repeated uint64 ids = 1 [(validate.rules).repeated.min_items = 1];
+}
+
+message ListSysUserByIDsReply {
+  repeated SysUser sysUsers = 1;
+}
+
+message ListSysUserByLastIDRequest {
+  uint64 lastID = 1; // last id
+  uint32 limit = 2 [(validate.rules).uint32.gt = 0]; // limit size per page
+  string sort = 3; // sort by column name of table, default is -id, the - sign indicates descending order.
+}
+
+message ListSysUserByLastIDReply {
+  repeated SysUser sysUsers = 1;
+}
+
+message ListSysUserRequest {
+  types.Params params = 1;
+}
+
+message ListSysUserReply {
+  int64 total =1;
+  repeated SysUser sysUsers = 2;
+}
+
+
